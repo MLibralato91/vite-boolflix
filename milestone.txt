@@ -1,0 +1,54 @@
+
+Ciao ragazzi,
+Esercizio di oggi: Boolflix
+nome repo: vite-boolflix
+
+Descrizione: Creare una WebApp vagamente simile al sito di Netflix.
+Dovrà avere almeno:
+-Un Header con una barra di ricerca che ci darà la possibilità di visualizzare, in base all'input, dei film o delle serieTV
+-Un Main che visualizzerà, in due sezioni differenti, I film e le serieTv che contengono la lettera o la parola inserite dall'utente
+Tutti i dati e le istruzioni di cui avete bisogno li troverete all'interno di questa link : https://developers.themoviedb.org/3/getting-started/introduction
+ricordate che avrete bisogno di questa key:89c7f1ba90f3019cad1eea7dc6b189d2
+Es di Film: https://api.themoviedb.org/3/movie/550?api_key=89c7f1ba90f3019cad1eea7dc6b189d2
+
+
+
+MileStone 1
+Creare come fatto fino ad oggi una struttura base con Vite & Vue ed una volta creato il tutto definite i primi componenti necessari.
+Mi raccomando, iniziate a disegnare mentalmente la struttura, in modo da non commettere errori in un secondo momento (padre/figlio). Se necessario create un disegno dei componenti su figma.
+Ora iniziamo a creare il componente dell'Header e del Main.
+Il main inizialmente potete popolarlo e lasciare visibili 20 card di film e 20 card di serieTv
+_____________________________________________
+
+
+
+MileStone 2
+Ora è necessario un componente che ci permetterà di filtrare i film e le serie da visualizzare (Come abbiamo fatto precedentemente con l'esercizio di Yu-Gi-Oh). Il componente avrà all'interno una casella di input e sarà collegato al componente Header.
+Quando l'utente inserisce un valore, verrà effettuata una chiamata alle API con l'end point dei film e delle serie, che sta a voi andare a studiare e cercare.
+_____________________________________________
+
+
+
+MileStone 3
+Una volta che abbiamo la possibilità di filtrare e popolare dinamicamente le nostre sezioni, aggiungiamo un'animazione che ci permetterà, passando sopra con il mouse, di visualizzare il retro della card con una rotazione.
+Il retro della Card potrebbe essere un ulteriore componente figlio delle card dove, sempre attraverso axios, possiamo inserire diverse informazioni riguardante il film/serie come ad esempio:
+-Lingua originale
+-Stelle di valutazione
+-durata
+-trama
+-attori
+_____________________________________________
+
+Bonus
+Se siete riusciti ad avere una struttura funzionante ora potete divertirvi ad inserire quello che volete.
+-Inserite un Jumbotron prima dei Film/Serie
+-Provate ad inserire i film recentemente usciti che successivamente verranno filtrati
+
+
+
+---------------------------------------------------------------------------------------------
+Chiave Api_key = 89c7f1ba90f3019cad1eea7dc6b189d2
+
+API https://api.themoviedb.org/3/movie/550?api_key=89c7f1ba90f3019cad1eea7dc6b189d2
+
+BaseUrl = https://api.themoviedb.org/3
