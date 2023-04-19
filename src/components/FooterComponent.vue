@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name:'MainComponent'
+    name:'FooterComponent'
   }
 </script>
 
