@@ -27,6 +27,7 @@
           </div>
           <div class="card-text">
             <h6>Valutazione: <i class="fa-solid fa-star" v-for="star in Math.round( vote )" ></i></h6>
+            <h6>Lingua Originale: {{ language }}</h6>
             <h6>Trama:</h6>
             <p class=" ">
               {{ overview }}

@@ -11,7 +11,7 @@
   <section class="container-fluid">
     <h2 class="text-white">TV-Series</h2>
     <div class="row">
-      <ItemCard v-for="(item,index) in store.seriesList" :key="item.id" :title="item.name" :orignalTitle="item.original_name" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path"/>
+      <ItemCard v-for="(item,index) in store.seriesList" :key="item.id" :title="item.name" :orignalTitle="item.original_name" :language="item.original_language" :vote="((item.vote_average) / 2).toFixed(0)" :image="item.poster_path" :overview="item.overview"/>
     </div>
   </section>
   </main>
