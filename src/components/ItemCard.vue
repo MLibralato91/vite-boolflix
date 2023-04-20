@@ -27,8 +27,9 @@
             <!-- Content -->
             <h4 class="font-weight-bold mb-0">{{ title }}</h4>
             <h6 class="font-weight-bold mb-0">{{ vote }}</h6>
+            <h5 class="Stars m-0" :style="'--rating: ' + vote + ';' "></h5>
             <hr>
-            <p>
+            <p class="overflow-auto">
               {{ overview }}
 
             </p>
@@ -60,6 +61,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+:root {
+  --star-size: 60px;
+  --star-color: #fff;
+  --star-background: #fc0;
+}
 
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; // make sure ★ appears correctly
+  line-height: 1;
+  
+  &::before {
+    content: '★★★★★';
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+    -webkit-background-clip: text;
+    
+    -webkit-text-fill-color: transparent;
+  }
+  
+}
 
 </style>

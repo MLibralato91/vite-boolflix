@@ -1,19 +1,20 @@
 <template>
   <HeaderComponent @on-search="getData" />
-
+<main>
   <section class="container-fluid">
-    <h2>Movies</h2>
+    <h2 class="text-white">Movies</h2>
 
     <div class="row">
-      <ItemCard v-for="(item,index) in store.movieList" :key="item.id" :title="item.title" :orignalTitle="item.original_title" :language="item.original_language" :vote="(item.vote_average).toFixed(0)" :image="item.poster_path" :overview="item.overview"/>
+      <ItemCard v-for="(item,index) in store.movieList" :key="item.id" :title="item.title" :orignalTitle="item.original_title" :language="item.original_language" :vote="((item.vote_average) / 2).toFixed(0)" :image="item.poster_path" :overview="item.overview"/>
     </div>
   </section>
   <section class="container-fluid">
-    <h2>TV-Series</h2>
+    <h2 class="text-white">TV-Series</h2>
     <div class="row">
       <ItemCard v-for="(item,index) in store.seriesList" :key="item.id" :title="item.name" :orignalTitle="item.original_name" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path"/>
     </div>
   </section>
+  </main>
 </template>
 
 <script>
@@ -63,4 +64,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main{
+  background-color: rgb(53, 46, 46);
+}
+</style>
