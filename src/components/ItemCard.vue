@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-2">
     <!-- Rotating card -->
     <div class="card-wrapper myCard">
       <div id="card-1" @click="infoCard =!infoCard" class="card card-rotating text-center">

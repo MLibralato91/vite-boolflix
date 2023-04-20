@@ -5,7 +5,7 @@
     <h2>Movies</h2>
 
     <div class="row">
-      <ItemCard v-for="(item,index) in store.movieList" :key="item.id" :title="item.title" :orignalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path" :overview="item.overview"/>
+      <ItemCard v-for="(item,index) in store.movieList" :key="item.id" :title="item.title" :orignalTitle="item.original_title" :language="item.original_language" :vote="(item.vote_average).toFixed(0)" :image="item.poster_path" :overview="item.overview"/>
     </div>
   </section>
   <section class="container-fluid">
