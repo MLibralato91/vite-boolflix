@@ -1,24 +1,66 @@
 <template>
-  <div>
-    <h1>Ciao
-      
-    </h1>
-  </div>
+  <HeaderComponent @on-search="getData" />
+
+  <section class="container-fluid">
+    <h2>Movies</h2>
+
+    <div class="row">
+      <ItemCard v-for="(item,index) in store.movieList" :key="item.id" :title="item.title" :orignalTitle="item.original_title" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path" :overview="item.overview"/>
+    </div>
+  </section>
+  <section class="container-fluid">
+    <h2>TV-Series</h2>
+    <div class="row">
+      <ItemCard v-for="(item,index) in store.seriesList" :key="item.id" :title="item.name" :orignalTitle="item.original_name" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path"/>
+    </div>
+  </section>
 </template>
 
 <script>
-  import HeaderComponent from './components/HeaderComponent.vue';
-  import MainComponent from './components/MainComponent.vue';
-  import FooterComponent from './components/FooterComponent.vue';
-  export default {
-    components:{
-      HeaderComponent,
-      MainComponent,
-      FooterComponent
+import axios from 'axios'
+import { store } from './data/store';
+import HeaderComponent from './components/HeaderComponent.vue';
+import ItemCard from './components/ItemCard.vue';
+export default {
+  components: {
+    HeaderComponent,
+    ItemCard
+  },
+  data() {
+    return {
+      store
     }
+  },
+  methods: {
+    getMovie() {
+      const url = store.baseUrl + store.endPoint.movie;
+      const options = {
+        params: store.parmas,
+      }
+      axios.get(url, options).then((res) => {
+        this.store.movieList = res.data.results;
+        console.log(res.data.results);
+      });
+    },
+    getSeries(){
+      const url = store.baseUrl + store.endPoint.seriesTv;
+      const options = {
+        params: store.parmas,
+      }
+      axios.get(url, options).then((res) => {
+        this.store.seriesList = res.data.results;
+        console.log(res.data.results);
+      });
+    },
+    getData(){
+      this.getMovie(),
+      this.getSeries()
+    }
+  },
+  mounted() {
+    // this.getMovie();
   }
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
