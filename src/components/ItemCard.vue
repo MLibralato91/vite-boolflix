@@ -1,42 +1,42 @@
 <template>
-  <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-5 ">
     <!-- Rotating card -->
-    <div class="card-wrapper myCard">
-      <div id="card-1" @click="infoCard =!infoCard" class="card card-rotating d-flex flex-column justify-content-between align-items-baseline mb-3">
-        
+    <div class="card-wrapper myCard ">
+      <div id="card-1" @click="infoCard = !infoCard" class="card card-rotating ">
+
         <!-- Front Side -->
         <div class="faceFront" v-if="infoCard">
-          
+
           <!-- Image-->
           <div class="card-up text-center">
-            <img class="img-fluid" :src="store.imageUrl + store.imgSize + image" alt="">
+            <img class="" :src="store.imageUrl + store.imgSize + image" alt="">
           </div>
-          
-         
+
+
         </div>
         <!-- Front Side -->
 
         <!-- Back Side -->
-        <div class="faceBack" v-else>
-          <div class="card-body">
-
+        <div class="faceBack p-2 " v-else>
+          <div class="card-body ">
             <!-- Content -->
             <h4 class="font-weight-bold mb-0">{{ title }}</h4>
             <h6 class="font-weight-bold mb-0">{{ vote }}</h6>
-            <h5 class="Stars m-0" :style="'--rating: ' + vote + ';' "></h5>
-            <hr>
+            <h5 class="Stars m-0" :style="'--rating: ' + vote + ';'"></h5>
+          </div>
+          <div class="card-text">
+            <h6>Trama:</h6>
             <p class=" ">
               {{ overview }}
-
             </p>
+
           </div>
+
         </div>
-        <!-- Back Side -->
-
       </div>
+      <!-- Back Side -->
+
     </div>
-
-
   </div>
 </template>
 
@@ -57,14 +57,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.faceBack{
+  background-color: rgb(150, 150, 135);
+}
 
-.myCard{
-  height: 400px;
-  
-}
-.card-body p{
-  overflow-y: auto;
-}
+
 :root {
   --star-size: 60px;
   --star-color: #fff;
@@ -73,22 +75,20 @@ export default {
 
 .Stars {
   --percent: calc(var(--rating) / 5 * 100%);
-  
+
   display: inline-block;
   font-size: var(--star-size);
-  font-family: Times; // make sure ★ appears correctly
+  font-family: Times;
   line-height: 1;
-  
+
   &::before {
     content: '★★★★★';
     letter-spacing: 3px;
     background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-  
-}
 
+  }
+
+}
 </style>
