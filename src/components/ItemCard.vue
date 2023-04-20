@@ -21,10 +21,12 @@
           <div class="card-body ">
             <!-- Content -->
             <h4 class="font-weight-bold mb-0">{{ title }}</h4>
-            <h6 class="font-weight-bold mb-0">{{ vote }}</h6>
-            <h5 class="Stars m-0" :style="'--rating: ' + vote + ';'"></h5>
+       
+            <div class="Stars m-0" :style="'--rating: ' + vote + ';'"></div>
+            
           </div>
           <div class="card-text">
+            <h6>Valutazione: <i class="fa-solid fa-star" v-for="star in Math.round( vote )" ></i></h6>
             <h6>Trama:</h6>
             <p class=" ">
               {{ overview }}
@@ -65,30 +67,10 @@ img {
 .faceBack{
   background-color: rgb(150, 150, 135);
 }
-
-
-:root {
-  --star-size: 60px;
-  --star-color: #fff;
-  --star-background: #fc0;
+i{
+  color: rgb(225, 225, 73);
+  padding-right: 3px;
 }
 
-.Stars {
-  --percent: calc(var(--rating) / 5 * 100%);
 
-  display: inline-block;
-  font-size: var(--star-size);
-  font-family: Times;
-  line-height: 1;
-
-  &::before {
-    content: '★★★★★';
-    letter-spacing: 3px;
-    background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-  }
-
-}
 </style>
