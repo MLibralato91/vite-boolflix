@@ -13,5 +13,13 @@ export const store = reactive({
     query: ''
   },
   imageUrl: 'https://image.tmdb.org/t/p/',
-  imgSize: 'w342'
+  imgSize: 'w342',
+  errors: {
+    movie: '',
+    tv: ''
+  },
+  loaders: {
+    movie: false,
+    tv: false
+  }
 });
