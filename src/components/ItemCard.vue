@@ -20,15 +20,28 @@
         <div class="faceBack p-2 " v-else>
           <div class="card-body ">
             <!-- Content -->
-            <h4 class="font-weight-bold mb-0">{{ title }}</h4>
-       
+            <h6 class="fw-bolder mb-0">{{ title }}</h6>
+
             <div class="Stars m-0" :style="'--rating: ' + vote + ';'"></div>
-            
+
           </div>
-          <div class="card-text">
-            <h6>Valutazione: <i class="fa-solid fa-star" v-for="star in Math.round( vote )" ></i></h6>
-            <h6>Lingua Originale: {{ language }}</h6>
-            <h6>Trama:</h6>
+          <div class="card-text small">
+            <div class="starsVote">
+              <p class="fw-bolder">Voto:
+              <div class="starsFull">
+                <i class="fa-solid fa-star" v-for="star in Math.round(vote)"></i>
+                <div class="starsEmpty">
+                  <i class=" fa-regular fa-star" v-for="star in Math.round(5)"></i>
+                </div>
+              </div>
+
+              </p>
+            </div>
+
+            <p class="fw-bolder">Lingua Originale: <img class="flag"
+                :src="`../../public/images/svg/language-${language}.svg`" alt="">{{ language }}</p>
+
+            <p class="fw-bolder">Trama:</p>
             <p class=" ">
               {{ overview }}
             </p>
@@ -60,18 +73,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img {
+.card-up img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.faceBack{
+
+.faceBack {
+  font-size: 15px;
   background-color: rgb(150, 150, 135);
 }
-i{
-  color: rgb(225, 225, 73);
-  padding-right: 3px;
+
+.starsFull {
+
+  position: relative;
+
+  i {
+    color: rgb(225, 225, 73);
+    font-size: 16px;
+  }
 }
 
+.starsEmpty {
+  position: absolute;
+  left: 0;
+  top: 0;
 
-</style>
+  i {
+    color: black;
+
+  }
+}
+
+.flag {
+  width: 20px;
+  border-radius: 30%;
+}</style>

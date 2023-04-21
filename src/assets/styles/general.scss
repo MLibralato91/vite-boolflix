@@ -5,3 +5,9 @@
 @import 'bootstrap/scss/bootstrap';
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+
+main{
+  background-color: rgb(53, 46, 46);
+  height: calc(100% - 90px);
+}
